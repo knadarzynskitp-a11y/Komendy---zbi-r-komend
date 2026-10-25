@@ -1,0 +1,8 @@
+
+Przebieg dodawanie repo na github:
+git init
+git add .
+git commit -m "[opis]"
+git branch -M main
+git remote add origin [repo_url]
+git push -u origin main

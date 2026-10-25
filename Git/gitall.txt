@@ -1,0 +1,49 @@
+git init                Tworzy nowe repozytorium Git
+git clone URL	        Klonuje repozytorium z GitHuba
+git status	            Pokazuje zmienione pliki
+git add .	            Dodaje wszystkie zmiany do staging
+git commit -m "[opis]"	Zapisuje commit
+git log             	Wyświetla historię commitów
+git log --oneline	    Skrócona historia commitów
+git diff	            Pokazuje niezapisane w staging zmiany
+
+
+2. GitHub – wysyłanie i pobieranie kodu
+git remote -v	Pokazuje podłączone repozytoria zdalne
+git remote add origin URL	Podłącza repozytorium z GitHuba
+git push	Wysyła commity na GitHuba
+git push -u origin main	Pierwsze wysłanie gałęzi main
+git pull	Pobiera i integruje zmiany
+git fetch	Pobiera informacje i commity bez scalania
+git push origin nazwa-brancha	Wysyła konkretną gałąź
+
+3. Branche – praca na gałęziach
+git branch	Wyświetla lokalne branche
+git branch -a	Wyświetla wszystkie znane branche
+git branch feature/auth	Tworzy branch
+git switch feature/auth	Przełącza na branch
+git switch -c feature/auth	Tworzy branch i od razu na niego przełącza
+git switch main	Wraca na główną gałąź
+git merge feature/auth	Scala wskazany branch z aktualnym
+git branch -d feature/auth	Usuwa scalony lokalny branch
+
+4. Cofanie zmian
+git restore plik.ts	Cofnie niezapisane zmiany w pliku
+git restore --staged plik.ts	Usuwa plik ze staging
+git reset --soft HEAD~1	Cofa ostatni commit, zachowuje zmiany w staging
+git reset --mixed HEAD~1	Cofa commit i staging, zachowuje zmiany w plikach
+git reset --hard HEAD~1	Cofa commit i usuwa związane z nim lokalne zmiany
+git revert HASH	Tworzy commit odwracający wskazany commit
+git commit --amend	Poprawia ostatni commit
+
+Uwaga: git reset --hard może bezpowrotnie usunąć niezapisane zmiany.
+5. Bardziej zaawansowane komendy
+git stash	Tymczasowo odkłada zmiany
+git stash pop	Przywraca odłożone zmiany
+git stash list	Pokazuje odłożone zmiany
+git rebase main	Przenosi commity aktualnej gałęzi na bazę main
+git cherry-pick HASH	Przenosi wybrany commit na aktualną gałąź
+git blame plik.ts	Pokazuje autorów poszczególnych linii
+git reflog	Pokazuje historię zmian pozycji HEAD
+git tag v1.0.0	Tworzy tag wersji
+git clean -n	Pokazuje, jakie nieśledzone pliki zostałyby usunięte
