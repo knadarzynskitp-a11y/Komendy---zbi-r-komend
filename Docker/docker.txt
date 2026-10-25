@@ -1,0 +1,17 @@
+budowa image: 
+docker build -t [nazwa] .
+
+tworzenie kontenera:
+docker run --name [nazwa_kontenera] -p [port]:[port] --env-file .env [nazwa_image]
+
+usuwanie kontenera:
+docker rm [nazwa]
+
+modyfikowanie image:
+docker build --no-cache -t [nazwa_image] .
+
+zatrzymanie kontenera:
+docker stop [nazwa_kontenera]
+
+tworzenie compose:
+docker compose up -d --build

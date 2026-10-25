@@ -1,0 +1,72 @@
+1. Podstawowe komendy Dockera
+Komenda	Co robi?
+docker --version	Pokazuje wersję Dockera
+docker info	Informacje o środowisku Docker
+docker ps	Pokazuje uruchomione kontenery
+docker ps -a	Pokazuje wszystkie kontenery
+docker images	Wyświetla pobrane obrazy
+docker pull nginx	Pobiera obraz z Docker Hub
+docker run nginx	Tworzy i uruchamia kontener
+docker run -d nginx	Uruchamia kontener w tle
+docker stop NAZWA	Zatrzymuje kontener
+docker start NAZWA	Uruchamia zatrzymany kontener
+docker restart NAZWA	Restartuje kontener
+docker rm NAZWA	Usuwa zatrzymany kontener
+docker rmi OBRAZ	Usuwa obraz
+
+2. Docker Compose – zarządzanie aplikacją
+Komenda	Co robi?
+docker compose up	Uruchamia usługi z pliku Compose
+docker compose up -d	Uruchamia usługi w tle
+docker compose up --build	Buduje obrazy i uruchamia usługi
+docker compose down	Zatrzymuje i usuwa kontenery oraz sieci projektu
+docker compose stop	Zatrzymuje kontenery bez ich usuwania
+docker compose start	Uruchamia zatrzymane kontenery
+docker compose restart	Restartuje usługi
+docker compose ps	Pokazuje kontenery projektu
+docker compose logs -f	Wyświetla logi na żywo
+docker compose config	Sprawdza i wyświetla konfigurację Compose
+docker compose down -v	Usuwa kontenery i wolumeny projektu
+
+Uwaga: docker compose down -v może skasować dane PostgreSQL przechowywane w wolumenie!
+3. Dockerfile – budowanie obrazów
+Komenda	Co robi?
+docker build -t myapp .	Buduje obraz z Dockerfile
+docker build --no-cache -t myapp .	Buduje obraz bez pamięci podręcznej
+docker run -p 3000:3000 myapp	Uruchamia obraz z mapowaniem portu
+docker run --name backend myapp	Tworzy kontener z wybraną nazwą
+docker image inspect myapp	Wyświetla szczegóły obrazu
+docker history myapp	Pokazuje warstwy obrazu
+
+4. Debugowanie i diagnostyka
+Komenda	Co robi?
+docker logs NAZWA	Wyświetla logi kontenera
+docker logs -f NAZWA	Śledzi logi na żywo
+docker exec -it NAZWA sh	Otwiera powłokę w kontenerze
+docker exec -it NAZWA bash	Otwiera Bash, jeśli jest dostępny
+docker inspect NAZWA	Szczegółowe informacje o kontenerze
+docker stats	Pokazuje wykorzystanie CPU i RAM
+docker top NAZWA	Wyświetla procesy kontenera
+docker port NAZWA	Pokazuje mapowanie portów
+docker cp plik NAZWA:/app/	Kopiuje plik do kontenera
+
+5. Wolumeny i sieci
+Komenda	Co robi?
+docker volume ls	Wyświetla wolumeny
+docker volume create dane	Tworzy wolumen
+docker volume inspect dane	Pokazuje szczegóły wolumenu
+docker volume rm dane	Usuwa nieużywany wolumen
+docker network ls	Wyświetla sieci
+docker network create backend-net	Tworzy sieć
+docker network inspect backend-net	Informacje o sieci
+docker network rm backend-net	Usuwa nieużywaną sieć
+
+6. Czyszczenie Dockera
+Komenda	Co robi?
+docker system df	Pokazuje zajęte miejsce
+docker container prune	Usuwa zatrzymane kontenery
+docker image prune	Usuwa nieużywane obrazy typu dangling
+docker volume prune	Usuwa nieużywane wolumeny
+docker network prune	Usuwa nieużywane sieci
+docker system prune	Czyści nieużywane zasoby
+docker system prune -a	Czyści również wszystkie nieużywane obrazy
