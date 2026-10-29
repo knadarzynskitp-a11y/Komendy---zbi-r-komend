@@ -5,4 +5,6 @@ git add .
 git commit -m "[opis]"
 git branch -M main
 git remote add origin [repo_url]
+git pull origin main --allow-unrelated-histories            //jeśli masz jakieś pliki już na repo np. readme.md
+//gdy pojawi sie vin przytrzymaj esc i wpisz :wq i enter
 git push -u origin main
